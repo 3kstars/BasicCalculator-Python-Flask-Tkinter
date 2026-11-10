@@ -26,9 +26,8 @@ def safe_eval(expr: str):
             return _eval(node.body)
         if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
             return node.value
-        # Compatibility with older Python versions (<3.8)
-        if isinstance(node, ast.Num):
-            return node.n
+        # ast.Constant 自 Python 3.8 起已统一表示数字字面量；
+        # 旧别名 ast.Num 在 3.12 弃用、3.14 移除，继续引用会让等号直接崩溃。
         if isinstance(node, ast.BinOp):
             op_type = type(node.op)
             if op_type not in _ALLOWED_OPS:
