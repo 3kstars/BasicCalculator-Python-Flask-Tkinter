@@ -160,3 +160,19 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# ===== 课程作业补充：构建产物、安装包与敏感文件一律不进仓库 =====
+# 安装包与构建目录只走 Releases / 课堂派
+dist/
+build/
+*.exe
+*.msi
+*.dmg
+*.app
+*.spec
+
+# 密钥与本地配置
+.env
+.env.*
+*.key
+*.pem
